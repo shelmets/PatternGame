@@ -1,0 +1,11 @@
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/bin/Debug/netcoreapp2.1/PatternGame.deps.json
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/bin/Debug/netcoreapp2.1/PatternGame.runtimeconfig.json
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/bin/Debug/netcoreapp2.1/PatternGame.runtimeconfig.dev.json
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/bin/Debug/netcoreapp2.1/PatternGame.dll
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/bin/Debug/netcoreapp2.1/PatternGame.pdb
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/obj/Debug/netcoreapp2.1/PatternGame.csprojAssemblyReference.cache
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/obj/Debug/netcoreapp2.1/PatternGame.csproj.CoreCompileInputs.cache
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/obj/Debug/netcoreapp2.1/PatternGame.AssemblyInfoInputs.cache
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/obj/Debug/netcoreapp2.1/PatternGame.AssemblyInfo.cs
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/obj/Debug/netcoreapp2.1/PatternGame.dll
+/Users/antonnikolaev/Projects/PatternGame/PatternGame/obj/Debug/netcoreapp2.1/PatternGame.pdb
