@@ -43,7 +43,7 @@ namespace PatternGame
         public int Cost { set; get; }
         public string Name { set; get; }
         public event EventHandler EventHandler;
-        public IUnit Fight(IUnit unit)
+        public virtual IUnit Fight(IUnit unit)
         {
             if (Attack > unit.Defence + unit.Health)
                 return unit;
@@ -58,7 +58,7 @@ namespace PatternGame
             unit.Defence = 0;
             return null;
         }
-        public void NotifyObservers()
+        public virtual void NotifyObservers()
         {
             EventHandler?.Invoke(this, EventArgs.Empty);
         }
@@ -126,12 +126,56 @@ namespace PatternGame
 
         public IUnit DoSpecialAction(IUnit unit)
         {
+            HeavyUnit heavy = unit as HeavyUnit;
+            if (heavy == null)
+                return null;
+
+            if (heavy.Horse && heavy.Shield && heavy.Pike && heavy.Helmet)
+                return null;
+
+            switch (Rand.Get(0, 4))
+            {
+                case 0:
+                    if (!heavy.Horse)
+                    {
+                        heavy.Horse = true;
+                        return new HorseDecorator(unit);
+                    }
+                    break;
+                case 1:
+                    if (!heavy.Shield)
+                    {
+                        heavy.Shield = true;
+                        return new ShieldDecorator(unit);
+                    }
+                    break;
+                case 2:
+                    if (!heavy.Pike)
+                    {
+                        heavy.Pike = true;
+                        return new PikeDecorator(unit);
+                    }
+                    break;
+                case 3:
+                    if (!heavy.Helmet)
+                    {
+                        heavy.Helmet = true;
+                        return new HelmetDecorator(unit);
+                    }
+                    break;
+                default:
+                    break;
+            }
             return null;
         }
     }
 
     class HeavyUnit : Unit, IUnit
     {
+        public bool Horse { get; set; }
+        public bool Shield { get; set; }
+        public bool Pike { get; set; }
+        public bool Helmet { get; set; }
         public HeavyUnit()
         {
             Health = SettingsUnit.HeavyUnit.Health;

@@ -165,6 +165,10 @@ namespace PatternGame
                         MoveInfo += String.Format("\nArmy {0}. {1}\n\n\t******** heal ********\n\nArmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), first.Name, beforeSpecial.GetInfo());
                         MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nArmy {0}. {1} healed\n", first.Name, victims[victimIndex].GetInfo());
                     }
+                    else
+                    {
+                        MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nNo one was cured from the army {0}. ", first.Name);
+                    }
                 }
                 else if (specials[specialIndex] is WizardUnit)
                 {
@@ -173,16 +177,26 @@ namespace PatternGame
                         MoveInfo += String.Format("\nАrmy {0}. {1}\n\n\t******** clone ********\n\nАrmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), first.Name, beforeSpecial.GetInfo());
                         MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nАrmy {0}. {1} cloned.\n", first.Name, victims[victimIndex].GetInfo());
                     }
+                    else
+                    {
+                        MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nNo one was cloned from the army {0}. ", first.Name);
+                    }
                 }
-                /*
                 else
                 {
-                    if (afterSpecial != null)
+                    if (specials[specialIndex] is LightUnit)
                     {
-                        MoveInfo += String.Format("\nArmy {0}. {1}\n\n\t******** dress ********\n\nArmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), first.Name, beforeSpecial.GetInfo());
-                        MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nArmy {0}. {1} dressed.\n", first.Name, victims[victimIndex].GetInfo());
+                        if (afterSpecial != null)
+                        {
+                            MoveInfo += String.Format("\nArmy {0}. {1}\n\n\t******** dress ********\n\nArmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), first.Name, beforeSpecial.GetInfo());
+                            MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nArmy {0}. {1} dressed.\n", first.Name, victims[victimIndex].GetInfo());
+                        }
+                        else
+                        {
+                            MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nNo one was dressed from the army {0}. ", first.Name);
+                        }
                     }
-                }*/
+                }
             }
         }
 

@@ -10,7 +10,7 @@ namespace PatternGame
             if (probability < 50)
                 return new LightUnit();
             else if (probability < 70)
-                return new HeavyUnit();
+                return new Proxy(new HeavyUnit());
             else if (probability < 80)
                 return new HealerUnit();
             else if (probability < 90)
