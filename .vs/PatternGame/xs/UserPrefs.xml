@@ -1,24 +1,23 @@
 ﻿<Properties StartupConfiguration="{355BA5B3-DB8C-427E-9659-D3ADCEF9CAB3}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PatternGame/Decorator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PatternGame/Battlefield.cs">
     <Files>
       <File FileName="PatternGame/Program.cs" Line="11" Column="30" />
-      <File FileName="PatternGame/Menu.cs" Line="120" Column="98" />
-      <File FileName="PatternGame/Battlefield.cs" Line="159" Column="97" />
-      <File FileName="PatternGame/Command.cs" Line="88" Column="10" />
-      <File FileName="PatternGame/Strategy.cs" Line="49" Column="20" />
-      <File FileName="PatternGame/Units.cs" Line="17" Column="22" />
-      <File FileName="PatternGame/Factory.cs" Line="21" Column="3" />
-      <File FileName="PatternGame/FactoryArmy.cs" Line="68" Column="10" />
-      <File FileName="PatternGame/SettingsUnit.cs" Line="8" Column="9" />
-      <File FileName="PatternGame/Proxy.cs" Line="11" Column="1" />
-      <File FileName="PatternGame/Decorator.cs" Line="1" Column="1" />
+      <File FileName="PatternGame/Menu.cs" />
+      <File FileName="PatternGame/Battlefield.cs" Line="25" Column="57" />
+      <File FileName="PatternGame/Command.cs" />
+      <File FileName="PatternGame/Strategy.cs" />
+      <File FileName="PatternGame/Units.cs" />
+      <File FileName="PatternGame/Factory.cs" />
+      <File FileName="PatternGame/SettingsUnit.cs" />
+      <File FileName="PatternGame/Proxy.cs" />
+      <File FileName="PatternGame/Decorator.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="PatternGame" expanded="True">
             <Node name="PatternGame" expanded="True">
-              <Node name="Decorator.cs" selected="True" />
+              <Node name="Battlefield.cs" selected="True" />
             </Node>
           </Node>
         </State>

@@ -21,6 +21,7 @@ namespace PatternGame
             Console.WriteLine("6. Redo last move");
             Console.WriteLine("7. Subscribe");
             Console.WriteLine("8. Unsubscribe");
+            Console.WriteLine("9. Change stategy");
             Console.WriteLine();
 
             switch (Console.ReadLine())
@@ -44,18 +45,19 @@ namespace PatternGame
                     invoker = new CommandInvoker(battlefield);
 
                     Write(String.Format("Armies created.\n{0}", battlefield.GetArmyInfo()));
-
+                    Console.ReadLine();
                     ShowMenu();
                     break;
                 case "2":
                     Console.WriteLine(battlefield.GetArmyInfo());
+                    Console.ReadLine();
                     ShowMenu();
                     break;
                 case "3":
                     invoker.Move();
 
                     Write(battlefield.MoveInfo);
-
+                    Console.ReadLine();
                     if (!battlefield.EndOfGame)
                         ShowMenu();
                     break;
@@ -63,20 +65,20 @@ namespace PatternGame
                     invoker.PlayToTheEnd();
 
                     Write(battlefield.GameInfo);
-
+                    Console.ReadLine();
                     break;
                 case "5":
                     invoker.Undo();
 
                     Write("Last move canceled. ");
-
+                    Console.ReadLine();
                     ShowMenu();
                     break;
                 case "6":
                     invoker.Redo();
 
                     Write("Last move repeated. ");
-
+                    Console.ReadLine();
                     ShowMenu();
                     break;
                 case "7":
@@ -85,8 +87,10 @@ namespace PatternGame
                     else
                     {
                         battlefield.Subscribe();
+                        subscribed = true;
                         Write("Subscribed. ");
                     }
+                    Console.ReadLine();
                     ShowMenu();
                     break;
                 case "8":
@@ -95,8 +99,10 @@ namespace PatternGame
                     else
                     {
                         battlefield.UnSubscribe();
+                        subscribed = false;
                         Write("Unsubscribed. ");
                     }
+                    Console.ReadLine();
                     ShowMenu();
                     break;
                 case "9":
@@ -120,11 +126,12 @@ namespace PatternGame
                             Console.WriteLine("Error. There is no such item. Plaese try again.");
                             break;
                     }
-
+                    Console.ReadLine();
                     ShowMenu();
                     break;
                 default:
                     Console.WriteLine("Error. There is no such item. Please try again.");
+                    Console.ReadLine();
                     ShowMenu();
                     break;
             }

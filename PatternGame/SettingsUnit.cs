@@ -13,6 +13,7 @@ namespace PatternGame
             public static readonly string Name = "Light Unit";
             public static readonly Tuple<int, int> rangeAttack = Tuple.Create(30,50);
             public static readonly Tuple<int, int> rangeDefence = Tuple.Create(20,40);
+            public static readonly int range = 3; 
         }
         public static class HeavyUnit
         {

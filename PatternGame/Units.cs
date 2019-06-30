@@ -95,6 +95,7 @@ namespace PatternGame
             Health = SettingsUnit.LightUnit.Health;
             Attack = Rand.Get(SettingsUnit.LightUnit.rangeAttack.Item1, SettingsUnit.LightUnit.rangeAttack.Item2);
             Defence = Rand.Get(SettingsUnit.LightUnit.rangeDefence.Item1, SettingsUnit.LightUnit.rangeDefence.Item2);
+            Range = SettingsUnit.LightUnit.range;
             Cost = SettingsUnit.LightUnit.Cost;
             Name = SettingsUnit.LightUnit.Name;
         }
@@ -104,6 +105,7 @@ namespace PatternGame
             Health = unit.Health;
             Attack = unit.Attack;
             Defence = unit.Defence;
+            Range = unit.Range;
             Cost = unit.Cost;
             Name = unit.Name;
         }

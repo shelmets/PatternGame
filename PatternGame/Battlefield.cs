@@ -22,7 +22,7 @@ namespace PatternGame
 
         public string GetArmyInfo()
         {
-            return String.Format("{0}\n\n********* VS ************\n\n{1}", Strategy.GetInfo(FirstArmy), Strategy.GetInfo(SecondArmy));
+            return String.Format("{0}\n\n in opposition \n\n{1}", Strategy.GetInfo(FirstArmy), Strategy.GetInfo(SecondArmy));
         }
 
         public void Subscribe()
@@ -111,17 +111,17 @@ namespace PatternGame
                 IUnit attacker = firstLineInFirst[i];
                 IUnit victim = firstLineInSecond[i];
 
-                MoveInfo += String.Format("\n\nArmy {0}. {1}\n\n******** vs ********\n\nArmy {2}. {3}", first.Name, attacker.GetInfo(), second.Name, victim.GetInfo());
+                MoveInfo += String.Format("\n\nArmy {0}. {1}\n\n in opposition \n\nArmy {2}. {3}", first.Name, attacker.GetInfo(), second.Name, victim.GetInfo());
                 IUnit dead = attacker.Fight(victim);
 
                 if (dead != null)
                 {
-                    MoveInfo += string.Format("\n\t\t\t||\n\t\t\t\\/\nArmy {0}. {1} dead.\n", second.Name, dead.Name);
+                    MoveInfo += string.Format("\n\nArmy {0}. {1} dead.\n", second.Name, dead.Name);
                     dead.NotifyObservers();
                     second.Remove(dead);
                 }
                 else
-                    MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nArmy {0}. {1}\n", second.Name, victim.GetInfo());
+                    MoveInfo += String.Format("\n\nArmy {0}. {1} attacked.\n", second.Name, victim.GetInfo());
             }
         }
 
@@ -148,38 +148,38 @@ namespace PatternGame
 
                 if (specials[specialIndex] is BowmanUnit)
                 {
-                    MoveInfo += String.Format("\n\nArmy {0}. {1}\n\n\t******** vs ********\n\nArmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), second.Name, beforeSpecial.GetInfo());
+                    MoveInfo += String.Format("\n\nArmy {0}. {1} in opposition \n\nArmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), second.Name, beforeSpecial.GetInfo());
                     if (afterSpecial == specials[specialIndex])
                     {
-                        MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nArmy {0}. {1} dead.\n", second.Name, victims[victimIndex].Name);
+                        MoveInfo += String.Format("\n\nArmy {0}. {1} dead.\n", second.Name, victims[victimIndex].Name);
                         afterSpecial.NotifyObservers();
                         second.Remove(afterSpecial);
                     }
                     else
-                        MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nArmy {0}. {1} attacked\n", second.Name, victims[victimIndex].GetInfo());
+                        MoveInfo += String.Format("\n\nArmy {0}. {1} attacked\n", second.Name, victims[victimIndex].GetInfo());
                 }
                 else if (specials[specialIndex] is HealerUnit)
                 {
                     if (afterSpecial != null)
                     {
-                        MoveInfo += String.Format("\nArmy {0}. {1}\n\n\t******** heal ********\n\nArmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), first.Name, beforeSpecial.GetInfo());
-                        MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nArmy {0}. {1} healed\n", first.Name, victims[victimIndex].GetInfo());
+                        MoveInfo += String.Format("\nArmy {0}. {1}\n\n\t healing \n\nArmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), first.Name, beforeSpecial.GetInfo());
+                        MoveInfo += String.Format("\n\nArmy {0}. {1} healed\n", first.Name, victims[victimIndex].GetInfo());
                     }
                     else
                     {
-                        MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nNo one was cured from the army {0}. ", first.Name);
+                        MoveInfo += String.Format("\n\nNo one was cured from the army {0}. ", first.Name);
                     }
                 }
                 else if (specials[specialIndex] is WizardUnit)
                 {
                     if (afterSpecial != null)
                     {
-                        MoveInfo += String.Format("\nАrmy {0}. {1}\n\n\t******** clone ********\n\nАrmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), first.Name, beforeSpecial.GetInfo());
-                        MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nАrmy {0}. {1} cloned.\n", first.Name, victims[victimIndex].GetInfo());
+                        MoveInfo += String.Format("\nАrmy {0}. {1}\n\n\t cloning \n\nАrmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), first.Name, beforeSpecial.GetInfo());
+                        MoveInfo += String.Format("\n\nАrmy {0}. {1} cloned.\n", first.Name, victims[victimIndex].GetInfo());
                     }
                     else
                     {
-                        MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nNo one was cloned from the army {0}. ", first.Name);
+                        MoveInfo += String.Format("\n\nNo one was cloned from the army {0}.\n", first.Name);
                     }
                 }
                 else
@@ -188,12 +188,12 @@ namespace PatternGame
                     {
                         if (afterSpecial != null)
                         {
-                            MoveInfo += String.Format("\nArmy {0}. {1}\n\n\t******** dress ********\n\nArmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), first.Name, beforeSpecial.GetInfo());
-                            MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nArmy {0}. {1} dressed.\n", first.Name, victims[victimIndex].GetInfo());
+                            MoveInfo += String.Format("\nArmy {0}. {1}\n\n\t dressing \n\nArmy {2}. {3}", first.Name, ((IUnit)specials[specialIndex]).GetInfo(), first.Name, beforeSpecial.GetInfo());
+                            MoveInfo += String.Format("\n\nArmy {0}. {1} dressed.\n", first.Name, victims[victimIndex].GetInfo());
                         }
                         else
                         {
-                            MoveInfo += String.Format("\n\t\t\t||\n\t\t\t\\/\nNo one was dressed from the army {0}. ", first.Name);
+                            MoveInfo += String.Format("\n\nNo one was dressed from the army {0}. ", first.Name);
                         }
                     }
                 }
