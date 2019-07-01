@@ -145,5 +145,9 @@ namespace PatternGame
                 sw.WriteLine(text);
             }
         }
+        public void ClearLog()
+        {
+            File.WriteAllText("Game.log", "");
+        }
     }
 }

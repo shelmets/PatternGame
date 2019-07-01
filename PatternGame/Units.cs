@@ -308,6 +308,10 @@ namespace PatternGame
         {
             return base.GetInfo() + string.Format(", strength - {0}",Strength);
         }
+        public override IUnit Copy()
+        {
+            return new HealerUnit(this);
+        }
     }
 
     class WizardUnit : Unit, IUnit, ICurable, ISpecialAction
@@ -356,6 +360,10 @@ namespace PatternGame
         public override string GetInfo()
         {
             return base.GetInfo() + string.Format(", strength - {0}", Strength);
+        }
+        public override IUnit Copy()
+        {
+            return new WizardUnit(this);
         }
     }
 }

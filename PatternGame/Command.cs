@@ -115,5 +115,4 @@ namespace PatternGame
             Invoke(new PlayToEndCommand(battlefield));
         }
     }
-    }
 }
